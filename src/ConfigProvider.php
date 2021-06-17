@@ -39,7 +39,7 @@ class ConfigProvider
                 [
                     'id' => 'PlatformError',
                     'description' => 'The config for constant PlatformError.',
-                    'source' => __DIR__ . '/Constants/LoginLogError.php',
+                    'source' => __DIR__ . '/Constants/PlatformError.php',
                     'destination' => EASYSWOOLE_ROOT . '/App/Constants/Errors/Platform/PlatformError.php',
                 ],
                 [

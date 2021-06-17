@@ -5,6 +5,7 @@ namespace App\HttpController\Platform\V1\Platform;
 use App\Constants\Type\System\LoginLogChannel;
 use App\HttpController\Platform\V1\Controller;
 use App\Service\Platform\PlatformService;
+use App\Service\System\LoginLogService;
 use EasySwoole\Component\Context\ContextManager;
 use EasySwoole\HttpAnnotation\AnnotationTag\Api;
 use EasySwoole\HttpAnnotation\AnnotationTag\ApiGroup;
@@ -28,6 +29,12 @@ class PlatformController extends Controller
      * @var PlatformService
      */
     protected $platformService;
+
+    /**
+     * @Di(key="LoginLogService")
+     * @var LoginLogService
+     */
+    protected $loginLogService;
 
     /**
      * @Api(name="修改密码", path="/platform/v1/platform/changePassword")
@@ -58,6 +65,8 @@ class PlatformController extends Controller
      *       "active|启用状态": 1,
      *       "active_message|启用状态信息": "启用",
      *       "last_time|上次登录时间": "2021-03-10 16:17:59",
+     *       "mobile|手机": "xxxxx",
+     *       "email|邮箱": "xxxx",
      *     })
      * @Param(name="page", type="int", alias="页", description="页", defaultValue="1" ,notEmpty="")
      * @Param(name="pageSize", type="int", alias="每页", description="每页", defaultValue="10" ,notEmpty="")
@@ -74,6 +83,8 @@ class PlatformController extends Controller
             'platform_id',
             'account',
             'platform_name',
+            'mobile',
+            'email',
             'active',
             'last_time',
         ], $page);
@@ -211,7 +222,8 @@ class PlatformController extends Controller
         $params = ContextManager::getInstance()->get('data');
         $page = new PageEntity($params);
         $params['channel'] = LoginLogChannel::PLATFORM;
-        $data = $this->platformService->loginLog($params, [
+        $params['relation_id'] = $this->getAccount()->platform_id;
+        $data = $this->loginLogService->getList($params, [
             'ip',
             'create_at'
         ], $page);

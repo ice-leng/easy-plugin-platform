@@ -101,4 +101,37 @@ class LoginController extends BaseController
         ];
         return $this->success($result);
     }
+
+    /**
+     * 刷新token
+     * @Api(name="刷新token", path="/platform/v1/login/refreshToken")
+     * @Method(allow={POST})
+     * @Param(name="token", alias="刷新token", description="刷新token", type="string", notEmpty="")
+     *
+     * @ApiSuccessTemplate(template="success")
+     *
+     * @throws
+     */
+    public function refreshToken()
+    {
+        $ip = $this->clientRealIP();
+        $refreshToken = $this->required('token');
+        $data = $this->loginService->refreshToken($refreshToken, $ip);
+        return $this->success($data);
+    }
+
+    /**
+     * @Api(name="退出", path="/platform/v1/login/logout")
+     * @Method(allow={POST})
+     * @Param(name="token", alias="token", description="token", type="string", notEmpty="")
+     * @ApiSuccessTemplate(template="success")
+     * @throws
+     */
+    public function logout()
+    {
+        $ip = $this->clientRealIP();
+        $token = $this->required('token');
+        $this->loginService->logout($token, $ip);
+        return $this->success();
+    }
 }

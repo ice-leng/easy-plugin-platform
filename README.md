@@ -1,2 +1,2 @@
 # easy-plugin-platform
-platform  code
+platform code 

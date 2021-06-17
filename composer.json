@@ -1,0 +1,38 @@
+{
+  "name": "easyswoole/plugin-platform",
+  "description": "easyswoole plugin platform",
+  "type": "library",
+  "keywords": [
+    "php",
+    "swoole",
+    "framework",
+    "easyswoole",
+    "plugin"
+  ],
+  "homepage": "https://www.easyswoole.com/",
+  "license": "Apache-2.0",
+  "require": {
+    "php": ">=7.2",
+    "easyswoole/verifycode": "3.x"
+  },
+  "require-dev": {
+    "easyswoole/swoole-ide-helper": "^1.2"
+  },
+  "autoload": {
+    "files": [
+      "src/ConfigProvider.php"
+    ]
+  },
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "lengbin",
+      "email": "xykxyk2008@163.com"
+    }
+  ],
+  "extra": {
+    "easyswoole": {
+      "config": "EasySwoole\\Plugin\\Platform\\ConfigProvider"
+    }
+  }
+}

@@ -237,27 +237,6 @@ class PlatformService extends BaseService
             $result['last_time'] = date('Y-m-d H:i:s', $result['last_time']);
         }
 
-        if (ArrayHelper::keyExists($result, 'role')) {
-            $result['role_name'] = $result['role']['name'] ?? '超级管理';
-            unset($result['role']);
-        }
-
-        if (ArrayHelper::isValidValue($result, 'job_type')) {
-            $result['job_type_message'] = PlatformJobType::byValue($result['job_type'])->getMessage();
-        }
-
-        if (ArrayHelper::keyExists($result, 'department')) {
-            $result['department'] = $result['department'] ?? [];
-        }
-
-        if (ArrayHelper::keyExists($result, 'department2')) {
-            $result['department2'] = $result['department2'] ?? [];
-        }
-
-        if (ArrayHelper::keyExists($result, 'department3')) {
-            $result['department3'] = $result['department3'] ?? [];
-        }
-
         return $result;
     }
 

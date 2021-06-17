@@ -211,7 +211,7 @@ class PlatformService extends BaseService
     public function getList(array $params = [], array $field = ['*'], ?PageEntity $pageEntity = null): array
     {
         $query = Platform::query();
-        $query->select($field)->with('role')->where([
+        $query->select($field)->where([
             'enable' => SoftDeleted::ENABLE,
         ]);
         if (ArrayHelper::isValidValue($params, 'active')) {

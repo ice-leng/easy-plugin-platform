@@ -141,7 +141,7 @@ class PlatformController extends Controller
     }
 
     /**
-     * @Api(name="修改管理员", path="/platform/v1/platform/edit")
+     * @Api(name="编辑管理员", path="/platform/v1/platform/edit")
      * @Method(allow={POST})
      *
      * @Param(name="platform_id", type="string", alias="管理员ID", description="管理员ID", lengthMax="32", required="", notEmpty="")

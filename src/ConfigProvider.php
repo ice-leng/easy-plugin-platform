@@ -46,7 +46,7 @@ class ConfigProvider
                     'id' => 'Controller',
                     'description' => 'The config for httpController controller.',
                     'source' => __DIR__ . '/Controller/Controller.php',
-                    'destination' => EASYSWOOLE_ROOT . '/App/HttpController/Platform/Controller.php',
+                    'destination' => EASYSWOOLE_ROOT . '/App/HttpController/Platform/V1/Controller.php',
                 ],
                 [
                     'id' => 'LoginController',

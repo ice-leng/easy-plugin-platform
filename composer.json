@@ -1,5 +1,5 @@
 {
-  "name": "easyswoole-tool/plugin-platform",
+  "name": "easyswoole/plugin-platform",
   "description": "easyswoole plugin platform",
   "type": "library",
   "keywords": [
@@ -9,8 +9,8 @@
     "easyswoole",
     "plugin"
   ],
-  "homepage": "https://www.easyswoole.com/",
-  "license": "Apache-2.0",
+  "homepage" : "https://www.easyswoole.com/",
+  "license" : "Apache-2.0",
   "require": {
     "php": ">=7.2",
     "easyswoole/verifycode": "3.x"
@@ -19,9 +19,9 @@
     "easyswoole/swoole-ide-helper": "^1.2"
   },
   "autoload": {
-    "files": [
-      "src/ConfigProvider.php"
-    ]
+    "psr-4": {
+      "EasySwoole\\Plugin\\Platform": "src/"
+    },
   },
   "minimum-stability": "stable",
   "authors": [

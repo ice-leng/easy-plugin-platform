@@ -10,14 +10,18 @@ class PlatformInit extends Migration
      */
     public function up(): void
     {
+        $time = time();
         \EasySwoole\HyperfOrm\Db::table('platform')->insert([
             [
-                'platform_id '  => SnowFlake::make(1, 1),
+                'platform_id'  => SnowFlake::make(1, 1),
+                'platform_name' => '超级管理员',
                 'account'       => 'root',
                 'password'      => '$2y$12$3Ulm.8owrYUHoW8gFh2DIeHWucFivOJMarlBp28iXFtTO.a.2EDwO',
-                'platform_name' => '超级管理员',
                 'mobile'        => '18888888888',
                 'email'         => 'admin@admin.com',
+                'create_at'   => $time,
+                'update_at'   => $time,
+                'enable'      => \EasySwoole\Skeleton\Constant\SoftDeleted::ENABLE,
             ],
         ]);
     }

@@ -64,13 +64,13 @@ class ConfigProvider
                     'id' => 'migratePlatform',
                     'description' => 'The config for migrate Platform.',
                     'source' => __DIR__ . '/Migrations/2021_05_02_231918_platform.php',
-                    'destination' => EASYSWOOLE_ROOT . '/migrations/platform.php',
+                    'destination' => EASYSWOOLE_ROOT . '/migrations/1_1_easy_plugin_platform.php',
                 ],
                 [
                     'id' => 'migratePlatformInit',
                     'description' => 'The config for migrate Platform Init.',
                     'source' => __DIR__ . '/Migrations/2021_05_02_231921_platform_init.php',
-                    'destination' => EASYSWOOLE_ROOT . '/migrations/platform_init.php',
+                    'destination' => EASYSWOOLE_ROOT . '/migrations/1_1_easy_plugin_platform_init.php',
                 ],
                 [
                     'id' => 'LoginLogService',
